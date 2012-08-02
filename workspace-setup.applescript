@@ -25,9 +25,9 @@ tell application "iTerm"
 		tell the last session to write text "cd " & projectPath & jekyllSource
 		tell the last session to write text "jekyll --server"
 
-		## Open tab for Compass to monitor SASS directory
+		## Open tab for Compass to monitor Sass directory
 		set sassSource to "/sass"
-		launch session "SASS"
+		launch session "Sass"
 		tell the last session to write text "cd " & projectPath & sassSource
 		tell the last session to write text "compass watch --poll"
 
