@@ -1,8 +1,13 @@
 set projectPath to "/path/to/project/folder"
 set projectPort to "3000"
+set sublimeProjectPath to projectPath & "/project.sublime-project"
 
 set ipAddr to IPv4 address of (get system info)
 set projectURL to "http://" & ipAddr & ":" & projectPort
+
+## Open the project directory in Sublime Text 2
+set sublimeSubfolder to ""
+tell application "Sublime Text 2" to activate
 
 ## Launch iTerm
 tell application "iTerm"
@@ -36,6 +41,7 @@ tell application "iTerm"
 
 		## Open tab for project directory
 		launch session "Project"
+		tell the last session to write text "subl " & sublimeProjectPath
 		tell the last session to write text "cd " & projectPath
 
 	end tell
@@ -43,10 +49,6 @@ end tell
 
 ## Open the project directory in Finder
 tell application "Finder" to open (projectPath as POSIX file)
-
-## Open the project directory in Sublime Text 2
-set sublimeSubfolder to ""
-tell application "Sublime Text 2" to open projectPath & sublimeSubfolder
 
 ## Launch Project URL in Google Chrome
 ## Refreshes tab if it already exists, otherwise it creates one
