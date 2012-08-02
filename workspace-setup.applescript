@@ -1,7 +1,10 @@
 set projectPath to "/path/to/project/folder"
-set projectURL to "http://localhost:3000"
+set projectPort to "3000"
 
-# Launch iTerm
+set ipAddr to IPv4 address of (get system info)
+set projectURL to "http://" & ipAddr & ":" & projectPort
+
+## Launch iTerm
 tell application "iTerm"
 	activate
 
