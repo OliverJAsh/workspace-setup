@@ -6,7 +6,6 @@ set ipAddr to IPv4 address of (get system info)
 set projectURL to "http://" & ipAddr & ":" & projectPort
 
 ## Open the project directory in Sublime Text 2
-set sublimeSubfolder to ""
 tell application "Sublime Text 2" to activate
 
 ## Launch iTerm
